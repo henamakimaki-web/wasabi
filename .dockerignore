@@ -1,0 +1,16 @@
+# デプロイ用にビルドコンテキストを軽くする
+node_modules
+.next
+out
+.git
+.cursor
+.claude
+
+.env
+.env.*
+!.env.example
+
+npm-debug.log*
+.DS_Store
+coverage
+.vercel

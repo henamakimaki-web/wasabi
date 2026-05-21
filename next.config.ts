@@ -1,16 +1,8 @@
 import type { NextConfig } from "next";
 
+/** Docker / VPS 向けに最小ランタイムを出力（Vercel は従来どおりビルド可能） */
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "picsum.photos",
-        port: "",
-        pathname: "/**",
-      },
-    ],
-  },
+  output: "standalone",
 };
 
 export default nextConfig;

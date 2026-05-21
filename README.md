@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 居酒屋・割烹「和さび」ランディングページ
 
-## Getting Started
+Next.js（App Router）で構築した店舗紹介サイトです。環境変数は不要で、そのままビルドできます。
 
-First, run the development server:
+## 前提
+
+- **Node.js** 20.9 以上（推奨: 22.x）。`.nvmrc` に `22` を指定しています。
+- パッケージマネージャは **npm**（`package-lock.json` 付き）
 
 ```bash
+nvm use   # nvm 利用時
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## スクリプト
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| コマンド | 説明 |
+|---------|------|
+| `npm run dev` | 開発サーバー |
+| `npm run build` | 本番ビルド（`output: "standalone"` で `.next/standalone` も生成） |
+| `npm run start` | ビルド後のプレビュー（`next start`） |
+| `npm run lint` | ESLint |
 
-## Learn More
+## デプロイ（おすすめ順）
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Vercel（手軽・Next.js 公式系）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. リポジトリを GitHub に push する  
+2. [Vercel](https://vercel.com) にログイン → **Add New Project** → リポジトリを選択  
+3. **Framework Preset**: Next.js のまま  
+4. **Build Command** / **Output** はデフォルトのまま（変更不要）  
+5. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`next.config.ts` の `output: "standalone"` は Vercel 上ではそのまま利用可能で、プラットフォーム側が適切に扱います。
 
-## Deploy on Vercel
+### 2. Docker（自社サーバー・任意の PaaS）
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+リポジトリ直下の `Dockerfile` でマルチステージビルドしています。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+docker build -t wasabi-site .
+docker run -p 3000:3000 wasabi-site
+```
+
+[http://localhost:3000](http://localhost:3000) で表示を確認できます。
+
+### 3. 自前 Node（VPS など）
+
+```bash
+npm ci
+npm run build
+NODE_ENV=production npm run start
+```
+
+`PORT` を変えたい場合は `PORT=8080 npm run start` のように指定してください。
+
+## 継続的インテグレーション
+
+`.github/workflows/ci.yml` で `push` / `pull_request` 時に `npm ci` → `lint` → `build` を実行します。デプロイ前の品質確認に利用できます。
+
+## ディレクトリの目安
+
+- `src/app/` … ページとレイアウト  
+- `src/components/` … セクション別コンポーネント  
+- `public/shop/` … 店舗写真（ビルド成果物に同梱）
+
+## ライセンス
+
+店舗・クライアント向けのため、利用範囲は契約に従ってください。
