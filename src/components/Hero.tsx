@@ -3,7 +3,8 @@ import Image from "next/image";
 
 /**
  * 2×2 コラージュ（左上→右上→左下→右下）
- * 4マスは同一サイズ（1:1:1:1）。上段2枚は下側を切るため object-top でトリミング。
+ * 上段2枚は object-top で下側トリミング。
+ * 高さは dvh/svh を優先（モバイルのアドレスバー対策）。
  */
 const heroImages = [
   {
@@ -32,7 +33,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative h-[calc(100vh-3.5rem)] scroll-mt-14 overflow-hidden"
+      className="relative min-h-[280px] h-[calc(100vh-3.5rem)] scroll-mt-14 overflow-hidden supports-[height:100dvh]:h-[calc(100dvh-3.5rem)]"
     >
       <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
         {heroImages.map((img, i) => (
@@ -41,7 +42,7 @@ export default function Hero() {
               src={img.src}
               alt={img.alt}
               fill
-              sizes="50vw"
+              sizes="(max-width: 768px) 50vw, 50vw"
               className={img.objectClass}
               priority={i < 2}
             />
@@ -51,12 +52,12 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-black/15" />
 
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex h-[min(360px,52vh)] w-[min(10rem,22vw)] max-w-[11rem] flex-col items-center bg-black/82 px-5 py-8 text-white sm:px-6 sm:py-9">
-          <div className="mb-4 h-5 w-px shrink-0 bg-white/25 sm:mb-5" />
+      <div className="absolute inset-0 flex items-center justify-center px-3">
+        <div className="flex h-[min(22rem,58svh)] w-[min(11rem,42vw)] max-w-[88vw] flex-col items-center bg-black/82 px-4 py-7 text-white sm:h-[min(360px,52vh)] sm:w-[min(10rem,36vw)] sm:max-w-[11rem] sm:px-6 sm:py-9">
+          <div className="mb-3 h-5 w-px shrink-0 bg-white/25 sm:mb-5" />
 
           <div
-            className="flex min-h-0 flex-1 items-center justify-center text-[clamp(1.25rem,3.2vw,1.75rem)] font-light tracking-[0.5em] text-white/92"
+            className="flex min-h-0 flex-1 items-center justify-center text-[clamp(1.35rem,6.5vw,1.85rem)] font-light tracking-[0.45em] text-white/92 sm:text-[clamp(1.25rem,3.2vw,1.75rem)] sm:tracking-[0.5em]"
             style={{ writingMode: "vertical-rl", textOrientation: "upright" }}
           >
             和さび
@@ -64,10 +65,10 @@ export default function Hero() {
 
           <div className="my-3 h-px w-10 shrink-0 bg-white/25 sm:my-4" />
 
-          <div className="flex shrink-0 flex-col items-center gap-2">
+          <div className="flex max-w-[11rem] shrink-0 flex-col items-center gap-2 px-0.5">
             <Building2 size={17} className="text-white/60" />
             <span
-              className="whitespace-nowrap text-[10px] tracking-wider text-white/60"
+              className="text-center text-[9.5px] leading-snug tracking-wider text-white/65 sm:text-[10px] sm:whitespace-nowrap sm:text-white/60"
               style={{ writingMode: "horizontal-tb" }}
             >
               個室・カウンター席／駐車場あり

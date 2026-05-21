@@ -26,9 +26,9 @@ const spaces = [
 
 export default function Rooms() {
   return (
-    <section id="rooms" className="scroll-mt-14 bg-zinc-900 px-12 py-24">
+    <section id="rooms" className="scroll-mt-14 bg-zinc-900 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-24">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-16 flex items-center gap-6">
+        <div className="mb-10 flex items-center gap-6 sm:mb-16">
           <div className="h-px w-8 bg-red-800" />
           <p className="font-serif text-[11px] tracking-[0.4em] text-red-800 uppercase">
             Seat & Space
@@ -37,14 +37,14 @@ export default function Rooms() {
         <h2 className="mb-3 font-serif text-2xl font-light tracking-[0.25em] text-white">
           お席・空間のご案内
         </h2>
-        <p className="mb-16 font-serif text-sm leading-loose tracking-wider text-white/45">
+        <p className="mb-10 font-serif text-sm leading-loose tracking-wider text-white/45 sm:mb-14">
           カウンター席と個室の雰囲気を、店内の写真でご紹介しております。
         </p>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {spaces.map((space) => (
             <div key={space.name} className="group">
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-52 overflow-hidden sm:h-56">
                 <Image
                   src={space.src}
                   alt={space.alt}

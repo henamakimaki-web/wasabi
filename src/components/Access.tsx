@@ -30,20 +30,20 @@ const mapEmbedSrc =
 
 export default function Access() {
   return (
-    <section id="access" className="scroll-mt-14 bg-zinc-900 px-12 py-24">
+    <section id="access" className="scroll-mt-14 bg-zinc-900 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-24">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-16 flex items-center gap-6">
+        <div className="mb-10 flex items-center gap-6 sm:mb-16">
           <div className="h-px w-8 bg-red-800" />
           <p className="font-serif text-[11px] tracking-[0.4em] text-red-800 uppercase">
             Access & Info
           </p>
         </div>
-        <h2 className="mb-16 font-serif text-2xl font-light tracking-[0.25em] text-white">
+        <h2 className="mb-10 font-serif text-2xl font-light tracking-[0.25em] text-white sm:mb-16">
           アクセス・店舗情報
         </h2>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-          <div className="relative h-72 overflow-hidden border border-white/10 bg-zinc-800">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="relative h-56 overflow-hidden border border-white/10 bg-zinc-800 sm:h-72">
             <iframe
               title="和さび 周辺地図"
               src={mapEmbedSrc}
@@ -57,12 +57,12 @@ export default function Access() {
             {infoRows.map((row, i) => (
               <div
                 key={row.label}
-                className={`flex gap-6 py-4 ${i < infoRows.length - 1 ? "border-b border-white/10" : ""}`}
+                className={`flex flex-col gap-1.5 py-4 sm:flex-row sm:gap-6 ${i < infoRows.length - 1 ? "border-b border-white/10" : ""}`}
               >
-                <dt className="w-24 shrink-0 pt-0.5 font-serif text-[11px] tracking-[0.25em] text-white/40">
+                <dt className="w-auto shrink-0 pt-0.5 font-serif text-[11px] tracking-[0.25em] text-white/40 sm:w-24">
                   {row.label}
                 </dt>
-                <dd className="font-serif text-[13px] leading-relaxed tracking-wider text-white/80">
+                <dd className="min-w-0 font-serif text-[13px] leading-relaxed tracking-wider text-white/80">
                   {row.value}
                 </dd>
               </div>

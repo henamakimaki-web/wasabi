@@ -18,22 +18,23 @@ type HeaderProps = {
 
 export default function Header({ onOpenMenu }: HeaderProps) {
   return (
-    <header className="fixed left-0 right-0 top-0 z-40 flex h-14 shadow-sm lg:left-48">
+    <header className="fixed left-0 right-0 top-0 z-40 flex h-14 min-h-14 shadow-sm lg:left-48">
       <button
         type="button"
         onClick={onOpenMenu}
-        className="flex h-full w-12 shrink-0 items-center justify-center border-r border-gray-100 bg-white text-gray-700 hover:bg-gray-50 lg:hidden"
+        className="flex h-14 min-h-[48px] w-12 min-w-[48px] shrink-0 items-center justify-center border-r border-gray-100 bg-white text-gray-700 active:bg-gray-100 lg:hidden"
         aria-label="メニューを開く"
       >
         <Menu size={22} strokeWidth={1.75} />
       </button>
 
-      <nav className="flex flex-1 items-center overflow-x-auto bg-white">
+      {/* スマホは横スクロールナビを廃止（左メニューに集約）。タブレット以上で表示 */}
+      <nav className="hidden touch-pan-x flex-1 items-center overflow-x-auto bg-white lg:flex">
         {menuItems.map((item) => (
           <Link
             key={item.label}
             href={item.href}
-            className="flex h-full shrink-0 items-center gap-0.5 whitespace-nowrap border-r border-gray-100 px-3 text-[13px] tracking-wide text-gray-700 transition-colors hover:bg-gray-50"
+            className="flex h-14 shrink-0 items-center gap-0.5 whitespace-nowrap border-r border-gray-100 px-3 text-[13px] tracking-wide text-gray-700 transition-colors hover:bg-gray-50"
           >
             {item.label}
             <ChevronDown
@@ -46,16 +47,16 @@ export default function Header({ onOpenMenu }: HeaderProps) {
 
       <Link
         href="/#access"
-        className="group flex min-w-[190px] shrink-0 items-center justify-between gap-3 bg-red-950 px-4 text-white transition-colors duration-200 hover:bg-red-900"
+        className="group flex min-h-[48px] min-w-0 flex-1 items-center justify-between gap-2 bg-red-950 px-2.5 text-white transition-colors active:bg-red-900 sm:gap-3 sm:px-3 lg:min-w-[190px] lg:flex-initial lg:px-4"
       >
-        <div>
-          <div className="text-[10px] leading-snug tracking-widest text-white/75">
+        <div className="min-w-0">
+          <div className="hidden text-[10px] leading-snug tracking-widest text-white/75 sm:block">
             居酒屋・割烹
           </div>
-          <div className="text-[13px] font-medium leading-snug tracking-wide">
+          <div className="text-[12px] font-medium leading-snug tracking-wide sm:text-[13px]">
             和さび
           </div>
-          <div className="mt-0.5 text-[11px] tracking-wider text-white/75">
+          <div className="mt-0.5 truncate text-[10px] tracking-wider text-white/75 sm:text-[11px]">
             093-601-2021
           </div>
         </div>
@@ -69,9 +70,9 @@ export default function Header({ onOpenMenu }: HeaderProps) {
         href="https://autoreserve.com/ja/restaurants/RApyMSvwptxm9sdFcvqB"
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex min-w-[120px] shrink-0 items-center justify-center gap-2 bg-black px-5 text-white transition-colors duration-200 hover:bg-gray-900"
+        className="group flex min-h-[48px] min-w-[5.5rem] shrink-0 items-center justify-center gap-1.5 bg-black px-3 text-white transition-colors active:bg-gray-800 sm:min-w-[120px] sm:gap-2 sm:px-5"
       >
-        <span className="whitespace-nowrap text-[13px] font-medium tracking-[0.2em]">
+        <span className="whitespace-nowrap text-center text-[10.5px] font-medium tracking-[0.08em] sm:text-[13px] sm:tracking-[0.2em]">
           WEB予約
         </span>
         <ChevronRight

@@ -20,8 +20,8 @@ type SidebarProps = {
 export default function Sidebar({ mobileOpen, onNavigate }: SidebarProps) {
   return (
     <aside
-      className={`fixed left-0 top-0 z-50 flex h-screen w-48 flex-col bg-black text-white transition-transform duration-300 ease-out lg:translate-x-0 ${
-        mobileOpen ? "translate-x-0" : "-translate-x-full"
+      className={`fixed left-0 top-0 z-50 flex h-[100dvh] max-h-[100dvh] w-[min(19.5rem,calc(100vw-2rem))] max-w-[90vw] flex-col overflow-y-auto bg-black text-white transition-transform duration-300 ease-out lg:max-h-none lg:w-48 lg:max-w-none ${
+        mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       }`}
     >
       <div className="flex flex-col items-center justify-center border-b border-white/10 px-4 py-8">
@@ -48,14 +48,14 @@ export default function Sidebar({ mobileOpen, onNavigate }: SidebarProps) {
             key={item.label}
             href={item.href}
             onClick={onNavigate}
-            className="border-b border-white/10 px-4 py-[14px] text-center text-[13px] tracking-[0.18em] text-white/85 transition-colors duration-200 hover:bg-white/10 hover:text-white"
+            className="flex min-h-[48px] items-center justify-center border-b border-white/10 px-4 py-3 text-center text-[13px] tracking-[0.18em] text-white/85 transition-colors active:bg-white/15 hover:bg-white/10 hover:text-white"
           >
             {item.label}
           </Link>
         ))}
       </nav>
 
-      <div className="space-y-1.5 border-t border-white/10 px-4 py-5 text-center">
+      <div className="space-y-1.5 border-t border-white/10 px-4 pb-[max(1.25rem,env(safe-area-inset-bottom,0px))] pt-5 text-center">
         <div className="text-[11px] tracking-widest text-white/50">
           EN ｜ JP
         </div>

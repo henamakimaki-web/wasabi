@@ -7,13 +7,13 @@ const featuredMenu = {
   badge: "看板",
 };
 
-const PREPARING_SLOTS = 6;
+const PREPARING_SLOTS = 2;
 
 export default function Menu() {
   return (
-    <section id="menu" className="scroll-mt-14 bg-stone-50 px-12 py-24">
+    <section id="menu" className="scroll-mt-14 bg-stone-50 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-24">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-16 flex items-center gap-6">
+        <div className="mb-10 flex items-center gap-6 sm:mb-16">
           <div className="h-px w-8 bg-red-900" />
           <p className="font-serif text-[11px] tracking-[0.4em] text-red-900/70 uppercase">
             Menu
@@ -22,7 +22,7 @@ export default function Menu() {
         <h2 className="mb-3 font-serif text-2xl font-light tracking-[0.25em] text-zinc-800">
           お料理・おすすめ
         </h2>
-        <p className="mb-16 font-serif text-sm leading-loose tracking-wider text-stone-500">
+        <p className="mb-10 font-serif text-sm leading-loose tracking-wider text-stone-500 sm:mb-14">
           現在は看板のお刺身盛り合わせのみ写真を掲載しております。その他メニューの写真は
           <span className="text-red-950/80">準備中</span>
           です。コース・飲み放題の詳細は店舗へお問い合わせください（宴会プランのご相談も承ります）。
@@ -33,7 +33,7 @@ export default function Menu() {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <article className="group overflow-hidden border border-stone-100 bg-white transition-shadow duration-300 hover:shadow-md">
-            <div className="relative h-44 overflow-hidden bg-stone-900/5">
+            <div className="relative h-40 overflow-hidden bg-stone-900/5 sm:h-44">
               <Image
                 src={featuredMenu.src}
                 alt="お刺身の盛り合わせ。旬の魚介とわさび・薬味を青みがかった陶器皿に盛り付けた一皿"
@@ -61,7 +61,7 @@ export default function Menu() {
               key={`preparing-${i}`}
               className="overflow-hidden border border-dashed border-stone-200 bg-white/80"
             >
-              <div className="relative flex h-44 flex-col items-center justify-center bg-stone-100/90 text-stone-400">
+              <div className="relative flex h-40 flex-col items-center justify-center bg-stone-100/90 text-stone-400 sm:h-44">
                 <span className="font-serif text-lg tracking-[0.45em] text-stone-500">
                   準備中
                 </span>
@@ -86,7 +86,7 @@ export default function Menu() {
             href="https://r.gnavi.co.jp/c4ege6st0000/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 border border-red-950/40 px-8 py-3 font-serif text-[12px] tracking-[0.3em] text-red-950 transition-colors duration-300 hover:bg-red-950 hover:text-white"
+            className="inline-flex min-h-[48px] items-center justify-center gap-2 border border-red-950/40 px-6 py-3 font-serif text-[12px] tracking-[0.25em] text-red-950 transition-colors active:bg-red-950/10 sm:px-8 sm:tracking-[0.3em] sm:hover:bg-red-950 sm:hover:text-white"
           >
             楽天ぐるなびで詳細を見る
           </a>

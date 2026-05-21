@@ -42,10 +42,10 @@ export default function Scenes() {
     <section
       id="scenes"
       style={{ backgroundColor: "#f5f3ef" }}
-      className="scroll-mt-14 px-12 py-24"
+      className="scroll-mt-14 px-4 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-24"
     >
       <div className="mx-auto max-w-5xl">
-        <div className="mb-16 flex items-center gap-6">
+        <div className="mb-10 flex items-center gap-6 sm:mb-16">
           <div className="h-px w-8 bg-red-900" />
           <p className="font-serif text-[11px] tracking-[0.4em] text-red-900/70 uppercase">
             Usage Scenes
@@ -54,15 +54,15 @@ export default function Scenes() {
         <h2 className="mb-3 font-serif text-2xl font-light tracking-[0.25em] text-zinc-800">
           ご利用シーン
         </h2>
-        <p className="mb-16 font-serif text-sm leading-loose tracking-wider text-stone-500">
+        <p className="mb-10 font-serif text-sm leading-loose tracking-wider text-stone-500 sm:mb-14">
           カウンターと個室、それぞれのお席で幅広いシーンに対応いたします
         </p>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           {scenes.map((scene) => (
             <div
               key={scene.ja}
-              className="border border-stone-100 bg-white p-8 transition-shadow duration-300 hover:shadow-sm"
+              className="border border-stone-100 bg-white p-5 transition-shadow duration-300 hover:shadow-sm sm:p-8"
             >
               <p className="mb-3 font-serif text-[10px] tracking-[0.4em] text-red-900/50">
                 {scene.en}
