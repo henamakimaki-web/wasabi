@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Serif_JP } from "next/font/google";
+import { demoStore } from "@/data/demoStore";
 import "./globals.css";
 
 const notoSerifJP = Noto_Serif_JP({
@@ -17,9 +18,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "居酒屋・割烹 和さび（わさび）｜北九州市八幡西区",
-  description:
-    "〒807-0804 福岡県北九州市八幡西区医生ケ丘7-2。割烹と居酒屋の良さを併せ持つ和の居酒屋。カウンター席と個室をご用意。鮮魚の刺身盛り合わせやふぐ料理が人気。093-601-2021。",
+  title: `${demoStore.tagline} ${demoStore.fullName}｜${demoStore.area}`,
+  description: `${demoStore.address}。デモ用の架空店舗サイトです。割烹と居酒屋の良さを併せ持つ和の居酒屋。カウンター席と個室をご用意。${demoStore.phone}。`,
 };
 
 export default function RootLayout({

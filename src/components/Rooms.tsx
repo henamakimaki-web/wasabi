@@ -1,26 +1,27 @@
 import Image from "next/image";
+import { demoStore } from "@/data/demoStore";
 
 const spaces = [
   {
     name: "カウンター席",
     capacity: "おひとり様・お二人様に",
     desc: "気軽に立ち寄れるカウンター席をご用意しております。職人の仕事ぶりを間近に感じながら、一杯のお時間も心地よくお過ごしいただけます。",
-    src: "/shop/guide-counter.png",
-    alt: "長い木のカウンターと円座、パーテーション付きのカウンター席",
+    src: "/shop/rooms-counter-2026.png",
+    alt: "木のカウンター席と調理場。椅子が並ぶ落ち着いた和風の店内",
   },
   {
     name: "個室",
     capacity: "お人数に応じて",
     desc: "ご接待・ご会食やご家族のお食事など、シーンに合わせて個室をご利用いただけます。空き状況はお電話またはネット予約にてご確認ください。",
-    src: "/shop/guide-private.png",
-    alt: "アーチ型の入口から見える掘りごたつ風の個室。暖色の照明と赤い座布団のお席",
+    src: "/shop/rooms-private-2026.png",
+    alt: "畳敷きの個室。座布団と低い木のテーブル、暖色の照明が印象的な和室",
   },
   {
     name: "旅館の趣ある店内",
     capacity: "落ち着いた照明",
     desc: "旅館を思わせる外観・内装が評判です。割烹と居酒屋の良さを感じられる空間で、上質な和のひとときをお楽しみください。",
-    src: "/shop/guide-interior.png",
-    alt: "カウンター越しに見える調理場、木棚の食器やレンジフード。招き猫の額装のある落ち着いた店内",
+    src: "/shop/rooms-entrance-2026.png",
+    alt: "下駄が置かれた入口から見える店内。暖簾と「迎」の掛け軸のある和の空間",
   },
 ];
 
@@ -73,7 +74,7 @@ export default function Rooms() {
         </div>
 
         <p className="mt-12 text-center font-serif text-[11px] tracking-widest text-white/30">
-          ※ 空き状況はお電話（093-601-2021）またはネット予約にてご確認ください
+          ※ 空き状況はお電話（{demoStore.phone}）またはネット予約にてご確認ください（デモ表示）
         </p>
       </div>
     </section>

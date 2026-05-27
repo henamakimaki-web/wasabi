@@ -1,33 +1,33 @@
 import { Building2 } from "lucide-react";
 import Image from "next/image";
+import { demoStore } from "@/data/demoStore";
 
-/**
- * 2×2 コラージュ（左上→右上→左下→右下）
- * 上段2枚は object-top で下側トリミング。
- * 高さは dvh/svh を優先（モバイルのアドレスバー対策）。
- */
-const heroImages = [
+/** 上段2枚＋下段2枚（ビールは左上のみ／重複しない） */
+const heroTopImages = [
   {
-    src: "/shop/hero-sign.png",
-    alt: "店先の看板「和さび WASABI」と花壇",
-    objectClass: "object-cover object-top",
-  },
-  {
-    src: "/shop/hero-exterior.png",
-    alt: "和さびの外観。壁面の看板「和さび WASABI」と営業時間の掲示",
-    objectClass: "object-cover object-top",
-  },
-  {
-    src: "/shop/hero-sashimi.png",
-    alt: "お刺身の盛り合わせ。旬の魚介を盛り付けた看板メニュー",
+    src: "/shop/hero-cheers.png",
+    alt: "ビールグラスを合わせて乾杯するシーン。温かい店内の雰囲気",
     objectClass: "object-cover object-center",
   },
   {
-    src: "/shop/hero-interior.png",
-    alt: "店内の通路。暖色の照明とアーチ型の入口のある落ち着いた座席エリア",
+    src: "/shop/hero-dining-room.png",
+    alt: "木のカウンター席と個室のある落ち着いた和風店内",
     objectClass: "object-cover object-center",
   },
-];
+] as const;
+
+const heroBottomImages = [
+  {
+    src: "/shop/hero-meat.png",
+    alt: "ネギをのせた焼き肉とサラダ。木のテーブルに並ぶ和食の一品",
+    objectClass: "object-cover object-center",
+  },
+  {
+    src: "/shop/hero-dish.png",
+    alt: "花形の飾り付けをしたふろふき大根。和食の一品",
+    objectClass: "object-cover object-center",
+  },
+] as const;
 
 export default function Hero() {
   return (
@@ -35,19 +35,36 @@ export default function Hero() {
       id="top"
       className="relative min-h-[280px] h-[calc(100vh-3.5rem)] scroll-mt-14 overflow-hidden supports-[height:100dvh]:h-[calc(100dvh-3.5rem)]"
     >
-      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-        {heroImages.map((img, i) => (
-          <div key={img.src} className="relative min-h-0 overflow-hidden">
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width: 768px) 50vw, 50vw"
-              className={img.objectClass}
-              priority={i < 2}
-            />
-          </div>
-        ))}
+      <div className="absolute inset-0 grid grid-rows-2">
+        <div className="grid min-h-0 grid-cols-2">
+          {heroTopImages.map((img) => (
+            <div key={img.src} className="relative min-h-0 overflow-hidden">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 50vw"
+                className={img.objectClass}
+                priority
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="grid min-h-0 grid-cols-2">
+          {heroBottomImages.map((img) => (
+            <div key={img.src} className="relative min-h-0 overflow-hidden">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 50vw"
+                className={img.objectClass}
+                priority
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="absolute inset-0 bg-black/15" />
@@ -60,7 +77,7 @@ export default function Hero() {
             className="flex min-h-0 flex-1 items-center justify-center text-[clamp(1.35rem,6.5vw,1.85rem)] font-light tracking-[0.45em] text-white/92 sm:text-[clamp(1.25rem,3.2vw,1.75rem)] sm:tracking-[0.5em]"
             style={{ writingMode: "vertical-rl", textOrientation: "upright" }}
           >
-            和さび
+            {demoStore.name}
           </div>
 
           <div className="my-3 h-px w-10 shrink-0 bg-white/25 sm:my-4" />

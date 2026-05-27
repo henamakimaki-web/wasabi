@@ -1,31 +1,22 @@
+import { demoStore } from "@/data/demoStore";
+
 const infoRows = [
-  { label: "店名", value: "和さび（わさび / Wasabi）" },
-  { label: "ジャンル", value: "居酒屋・割烹（独立個人店）" },
-  {
-    label: "住所",
-    value: "〒807-0804 福岡県北九州市八幡西区医生ケ丘7-2",
-  },
-  {
-    label: "アクセス",
-    value:
-      "JR筑豊本線（若松〜桂川）本城駅 出口1 より徒歩約19分。駐車場あり（台数は店舗にてご確認ください）。",
-  },
-  { label: "電話番号", value: "093-601-2021" },
+  { label: "店名", value: demoStore.fullName },
+  { label: "ジャンル", value: demoStore.genre },
+  { label: "住所", value: demoStore.address },
+  { label: "アクセス", value: demoStore.access },
+  { label: "電話番号", value: demoStore.phone },
   {
     label: "営業時間",
-    value: "18:00 〜 22:00（毎日）※定休日は店舗にてご確認ください",
+    value: `${demoStore.hours} ※${demoStore.hoursNote}`,
   },
-  { label: "お支払い", value: "現金・カード可（JCB・AMEX）" },
-  {
-    label: "席",
-    value:
-      "カウンター席、個室（お人数・お席の詳細はご予約時にお問い合わせください）",
-  },
+  { label: "お支払い", value: demoStore.payment },
+  { label: "席", value: demoStore.seats },
 ];
 
 const mapEmbedSrc =
   "https://maps.google.com/maps?q=" +
-  encodeURIComponent("福岡県北九州市八幡西区医生ケ丘7-2") +
+  encodeURIComponent(demoStore.mapQuery) +
   "&z=16&output=embed";
 
 export default function Access() {
@@ -45,7 +36,7 @@ export default function Access() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="relative h-56 overflow-hidden border border-white/10 bg-zinc-800 sm:h-72">
             <iframe
-              title="和さび 周辺地図"
+              title={`${demoStore.name} 周辺地図（デモ）`}
               src={mapEmbedSrc}
               className="absolute inset-0 h-full w-full border-0 grayscale-[20%] contrast-[1.05]"
               loading="lazy"
@@ -71,7 +62,7 @@ export default function Access() {
         </div>
 
         <p className="mt-12 font-serif text-[11px] leading-relaxed tracking-wide text-white/35">
-          掲載情報は制作時点のものです。営業時間・定休日・駐車場台数などは変更となる場合がございます。最新情報はお電話または各予約サイトにてご確認ください。
+          ※本サイトはデモ用の架空店舗です。掲載されている店名・住所・電話番号・地図・予約リンクはすべてサンプルであり、実在の店舗情報ではありません。
         </p>
       </div>
     </section>

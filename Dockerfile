@@ -1,4 +1,4 @@
-# 居酒屋「和さび」サイト — next.config の output: "standalone" 用
+# 居酒屋デモサイト — next.config の output: "standalone" 用
 # ビルド: docker build -t wasabi-site .
 # 起動: docker run -p 3000:3000 wasabi-site
 

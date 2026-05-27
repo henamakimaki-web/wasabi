@@ -2,6 +2,7 @@
 
 import { ChevronDown, ChevronRight, Menu } from "lucide-react";
 import Link from "next/link";
+import { demoStore } from "@/data/demoStore";
 
 const menuItems: { label: string; href: string }[] = [
   { label: "おすすめ料理", href: "/#menu" },
@@ -45,32 +46,27 @@ export default function Header({ onOpenMenu }: HeaderProps) {
         ))}
       </nav>
 
-      <Link
-        href="/#access"
-        className="group flex min-h-[48px] min-w-0 flex-1 items-center justify-between gap-2 bg-red-950 px-2.5 text-white transition-colors active:bg-red-900 sm:gap-3 sm:px-3 lg:min-w-[190px] lg:flex-initial lg:px-4"
-      >
+      <div className="group flex min-h-[48px] min-w-0 flex-1 items-center justify-between gap-2 bg-red-950 px-2.5 text-white sm:gap-3 sm:px-3 lg:min-w-[190px] lg:flex-initial lg:px-4">
         <div className="min-w-0">
           <div className="hidden text-[10px] leading-snug tracking-widest text-white/75 sm:block">
-            居酒屋・割烹
+            {demoStore.tagline}
           </div>
           <div className="text-[12px] font-medium leading-snug tracking-wide sm:text-[13px]">
-            和さび
+            {demoStore.name}
           </div>
           <div className="mt-0.5 truncate text-[10px] tracking-wider text-white/75 sm:text-[11px]">
-            093-601-2021
+            {demoStore.phone}
           </div>
         </div>
         <ChevronRight
           size={13}
           className="shrink-0 text-white/50 transition-colors group-hover:text-white/90"
         />
-      </Link>
+      </div>
 
-      <a
-        href="https://autoreserve.com/ja/restaurants/RApyMSvwptxm9sdFcvqB"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex min-h-[48px] min-w-[5.5rem] shrink-0 items-center justify-center gap-1.5 bg-black px-3 text-white transition-colors active:bg-gray-800 sm:min-w-[120px] sm:gap-2 sm:px-5"
+      <button
+        type="button"
+        className="group flex min-h-[48px] min-w-[5.5rem] shrink-0 cursor-default items-center justify-center gap-1.5 bg-black px-3 text-white sm:min-w-[120px] sm:gap-2 sm:px-5"
       >
         <span className="whitespace-nowrap text-center text-[10.5px] font-medium tracking-[0.08em] sm:text-[13px] sm:tracking-[0.2em]">
           WEB予約
@@ -79,7 +75,7 @@ export default function Header({ onOpenMenu }: HeaderProps) {
           size={13}
           className="shrink-0 text-white/50 transition-colors group-hover:text-white/90"
         />
-      </a>
+      </button>
     </header>
   );
 }

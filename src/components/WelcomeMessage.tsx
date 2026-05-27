@@ -1,3 +1,5 @@
+import { demoStore } from "@/data/demoStore";
+
 const subHeadingClass =
   "font-serif text-lg font-bold leading-snug tracking-wide text-zinc-800 border-l-4 border-[#8c2727] pl-3 sm:text-xl sm:pl-3.5";
 
@@ -18,20 +20,20 @@ export default function WelcomeMessage() {
         <header className="mb-10 text-center sm:mb-12">
           <p className="mb-3">
             <span className="inline-block border border-[#8c2727] px-2.5 py-1 font-serif text-[13px] font-medium tracking-[0.2em] text-[#8c2727] sm:text-sm sm:tracking-[0.24em]">
-              北九州市八幡西区
+              {demoStore.area}
             </span>
           </p>
           <h1 className="font-serif text-[1.125rem] font-bold leading-[1.55] tracking-[0.06em] text-zinc-800 sm:text-xl sm:leading-[1.6] sm:tracking-[0.08em]">
             割烹の味を、気取らずに味わえる
             <br />
-            上質な和の居酒屋「和さび」
+            上質な和の居酒屋「{demoStore.name}」
           </h1>
         </header>
 
         {/* リード */}
         <div className="mb-10 space-y-6 font-serif text-[15px] leading-[1.85] tracking-wide text-red-950/95 sm:mb-12 sm:text-base sm:leading-[1.9]">
           <p>
-            北九州市八幡西区に佇む「和さび」は、旅館を思わせる落ち着いた佇まいが印象的な一軒です。
+            {demoStore.area}に佇む「{demoStore.name}」は、旅館を思わせる落ち着いた佇まいが印象的な一軒です。
           </p>
           <p>
             割烹ならではの確かな手仕事と、居酒屋の気軽さを、ひとつのお店でゆったりとお楽しみいただけます。
@@ -87,7 +89,7 @@ export default function WelcomeMessage() {
         </div>
 
         <p className="mt-10 text-center font-serif text-[13px] tracking-[0.2em] text-stone-500 sm:mt-12">
-          居酒屋・割烹 和さび（わさび）
+          {demoStore.tagline} {demoStore.fullName}
         </p>
 
         <div className="mx-auto mt-10 h-px w-8 bg-red-950/20 sm:mt-12" />
