@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Serif_JP } from "next/font/google";
-import { demoStore } from "@/data/demoStore";
 import "./globals.css";
 
 const notoSerifJP = Noto_Serif_JP({
@@ -18,8 +17,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: `${demoStore.tagline} ${demoStore.fullName}｜${demoStore.area}`,
-  description: `${demoStore.address}。デモ用の架空店舗サイトです。割烹と居酒屋の良さを併せ持つ和の居酒屋。カウンター席と個室をご用意。${demoStore.phone}。`,
+  title: "居酒屋まさまさ｜北九州市八幡西区",
+  description:
+    "〒807-0843 福岡県北九州市八幡西区三ケ森3丁目10-5。クチコミ5.0の居酒屋。ディナーにご利用いただけます。19:00営業開始。080-2796-1533。",
 };
 
 export default function RootLayout({

@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { demoStore } from "@/data/demoStore";
 
 const navItems: { label: string; href: string }[] = [
   { label: "店舗情報", href: "/#access" },
   { label: "おすすめ料理", href: "/#menu" },
-  { label: "お席・空間", href: "/#rooms" },
+  { label: "クチコミ", href: "/#rooms" },
   { label: "ご利用シーン", href: "/#scenes" },
   { label: "コンセプト", href: "/#features" },
   { label: "ご挨拶", href: "/#welcome" },
@@ -32,13 +31,10 @@ export default function Sidebar({ mobileOpen, onNavigate }: SidebarProps) {
           className="relative flex min-h-[5rem] w-[5.5rem] flex-col items-center justify-center rounded-full border border-white/40 px-2 py-3 text-center"
         >
           <span className="block font-serif text-[10px] tracking-[0.35em] text-white/70">
-            {demoStore.tagline}
+            居酒屋
           </span>
           <span className="mt-1 block font-serif text-lg tracking-[0.25em] text-white">
-            {demoStore.name}
-          </span>
-          <span className="mt-0.5 block font-serif text-[9px] tracking-widest text-white/45">
-            {demoStore.nameEn}
+            まさまさ
           </span>
         </Link>
       </div>

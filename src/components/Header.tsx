@@ -2,11 +2,10 @@
 
 import { ChevronDown, ChevronRight, Menu } from "lucide-react";
 import Link from "next/link";
-import { demoStore } from "@/data/demoStore";
 
 const menuItems: { label: string; href: string }[] = [
   { label: "おすすめ料理", href: "/#menu" },
-  { label: "お席・空間", href: "/#rooms" },
+  { label: "クチコミ", href: "/#rooms" },
   { label: "ご利用シーン", href: "/#scenes" },
   { label: "コンセプト", href: "/#features" },
   { label: "ご挨拶", href: "/#welcome" },
@@ -46,36 +45,39 @@ export default function Header({ onOpenMenu }: HeaderProps) {
         ))}
       </nav>
 
-      <div className="group flex min-h-[48px] min-w-0 flex-1 items-center justify-between gap-2 bg-red-950 px-2.5 text-white sm:gap-3 sm:px-3 lg:min-w-[190px] lg:flex-initial lg:px-4">
+      <Link
+        href="/#access"
+        className="group flex min-h-[48px] min-w-0 flex-1 items-center justify-between gap-2 bg-red-950 px-2.5 text-white transition-colors active:bg-red-900 sm:gap-3 sm:px-3 lg:min-w-[190px] lg:flex-initial lg:px-4"
+      >
         <div className="min-w-0">
           <div className="hidden text-[10px] leading-snug tracking-widest text-white/75 sm:block">
-            {demoStore.tagline}
+            居酒屋
           </div>
           <div className="text-[12px] font-medium leading-snug tracking-wide sm:text-[13px]">
-            {demoStore.name}
+            まさまさ
           </div>
           <div className="mt-0.5 truncate text-[10px] tracking-wider text-white/75 sm:text-[11px]">
-            {demoStore.phone}
+            080-2796-1533
           </div>
         </div>
         <ChevronRight
           size={13}
           className="shrink-0 text-white/50 transition-colors group-hover:text-white/90"
         />
-      </div>
+      </Link>
 
-      <button
-        type="button"
-        className="group flex min-h-[48px] min-w-[5.5rem] shrink-0 cursor-default items-center justify-center gap-1.5 bg-black px-3 text-white sm:min-w-[120px] sm:gap-2 sm:px-5"
+      <a
+        href="tel:08027961533"
+        className="group flex min-h-[48px] min-w-[5.5rem] shrink-0 items-center justify-center gap-1.5 bg-black px-3 text-white transition-colors active:bg-gray-800 sm:min-w-[120px] sm:gap-2 sm:px-5"
       >
         <span className="whitespace-nowrap text-center text-[10.5px] font-medium tracking-[0.08em] sm:text-[13px] sm:tracking-[0.2em]">
-          WEB予約
+          電話予約
         </span>
         <ChevronRight
           size={13}
           className="shrink-0 text-white/50 transition-colors group-hover:text-white/90"
         />
-      </button>
+      </a>
     </header>
   );
 }

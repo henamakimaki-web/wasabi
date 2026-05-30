@@ -24,7 +24,7 @@ export default function Home() {
         {/* ④ お料理・メニュー */}
         <Menu />
 
-        {/* ⑤ お席・空間 */}
+        {/* ⑤ クチコミ */}
         <Rooms />
 
         {/* ⑥ ご利用シーン */}

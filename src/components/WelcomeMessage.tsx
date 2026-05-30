@@ -1,5 +1,3 @@
-import { demoStore } from "@/data/demoStore";
-
 const subHeadingClass =
   "font-serif text-lg font-bold leading-snug tracking-wide text-zinc-800 border-l-4 border-[#8c2727] pl-3 sm:text-xl sm:pl-3.5";
 
@@ -20,60 +18,60 @@ export default function WelcomeMessage() {
         <header className="mb-10 text-center sm:mb-12">
           <p className="mb-3">
             <span className="inline-block border border-[#8c2727] px-2.5 py-1 font-serif text-[13px] font-medium tracking-[0.2em] text-[#8c2727] sm:text-sm sm:tracking-[0.24em]">
-              {demoStore.area}
+              北九州市八幡西区
             </span>
           </p>
           <h1 className="font-serif text-[1.125rem] font-bold leading-[1.55] tracking-[0.06em] text-zinc-800 sm:text-xl sm:leading-[1.6] sm:tracking-[0.08em]">
-            割烹の味を、気取らずに味わえる
+            ディナーにゆっくり楽しめる
             <br />
-            上質な和の居酒屋「{demoStore.name}」
+            居酒屋「まさまさ」
           </h1>
         </header>
 
         {/* リード */}
         <div className="mb-10 space-y-6 font-serif text-[15px] leading-[1.85] tracking-wide text-red-950/95 sm:mb-12 sm:text-base sm:leading-[1.9]">
           <p>
-            {demoStore.area}に佇む「{demoStore.name}」は、旅館を思わせる落ち着いた佇まいが印象的な一軒です。
+            北九州市八幡西区三ケ森に佇む「居酒屋まさまさ」は、落ち着いた雰囲気の中でディナーをお楽しみいただける一軒です。
           </p>
           <p>
-            割烹ならではの確かな手仕事と、居酒屋の気軽さを、ひとつのお店でゆったりとお楽しみいただけます。
+            店内飲食（イートイン）に対応しており、食事・サービス・雰囲気すべて高評価のクチコミをいただいております。
           </p>
         </div>
 
         <div className="space-y-8 sm:space-y-10">
           <section className="space-y-4">
-            <h2 className={subHeadingClass}>職人が厳選する旬の食材</h2>
+            <h2 className={subHeadingClass}>旬の食材とお料理</h2>
             <div className="space-y-5 font-serif text-[15px] leading-[1.85] tracking-wide text-red-950/95 sm:text-base sm:leading-[1.9]">
               <p>
-                腕を磨いた料理人が、ふぐをはじめとする魚介を中心に、旬の食材を日々厳選しております。
+                お刺身や天ぷらなど、和食のお料理をお楽しみいただけます。
               </p>
               <p>
-                とくに鮮度にこだわったお刺身は、多くのお客様にご支持いただいている看板の一品です。
+                クチコミでも食事5/5の高評価をいただいております。
               </p>
             </div>
           </section>
 
           <section className="space-y-4">
-            <h2 className={subHeadingClass}>シーンに合わせた上質な空間</h2>
+            <h2 className={subHeadingClass}>クチコミで評判のお店</h2>
             <p className="font-serif text-[15px] leading-[1.85] tracking-wide text-red-950/95 sm:text-base sm:leading-[1.9]">
-              お席はカウンターと個室をご用意しております。ご利用のイメージは、例えば次のような場面です。
+              Googleマップのクチコミ（2件・星5）より。1人から8人まで、さまざまな人数でのご利用実績があります。
             </p>
             <ul className="list-none space-y-2.5 pl-0 sm:space-y-3">
               <li className={sceneListItemClass}>
-                カウンター席で、職人の手さばきを眺めながらのおひとり様の一杯
+                食事 5/5 ｜ サービス 5/5 ｜ 雰囲気 4〜5/5
               </li>
               <li className={sceneListItemClass}>
-                個室でのご接待・ご会食、大切な方との語らいの時間
+                静かで、会話しやすい空間
               </li>
               <li className={sceneListItemClass}>
-                記念日や女子会、ご家族のお集まりなど、心安らぐひととき
+                1人、2人、3〜4人、5〜8人でのご利用
               </li>
               <li className={sceneListItemClass}>
-                仕事帰りの軽い一杯から、ゆっくりコースまで幅広いご利用
+                待ち時間なし／駐車スペースに余裕あり
               </li>
             </ul>
             <p className="font-serif text-[15px] leading-[1.85] tracking-wide text-red-950/95 sm:text-base sm:leading-[1.9]">
-              お席のスタイルに合わせて、さまざまなシーンでお迎えいたします。
+              価格帯の目安は、お一人様 5,000円〜6,000円程度です。
             </p>
           </section>
 
@@ -82,14 +80,14 @@ export default function WelcomeMessage() {
             <div className="space-y-4 font-serif text-[15px] leading-[1.85] tracking-wide text-red-950/95 sm:text-base sm:leading-[1.9]">
               <p>当店は多くのお客様にご予約いただいております。</p>
               <p>
-                お越しの際は、お電話またはネット予約にて、事前にお席のご確認をおすすめいたします。
+                お越しの際は、お電話にて事前にお席のご確認をおすすめいたします。
               </p>
             </div>
           </section>
         </div>
 
         <p className="mt-10 text-center font-serif text-[13px] tracking-[0.2em] text-stone-500 sm:mt-12">
-          {demoStore.tagline} {demoStore.fullName}
+          居酒屋まさまさ
         </p>
 
         <div className="mx-auto mt-10 h-px w-8 bg-red-950/20 sm:mt-12" />
